@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Communication between activities</string>
+//Intent key`s
+    <string name="key1">Key1</string>
+    <string name="key2">Key2</string>
+    <string name="key3">Back</string>
+</resources>
