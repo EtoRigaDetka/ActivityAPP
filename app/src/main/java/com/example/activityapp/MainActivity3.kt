@@ -15,13 +15,15 @@ class MainActivity3 : AppCompatActivity() {
     }
 
     fun onClickBack(view: View) {
-        val a = intent.putExtra("Key3", viewBinding.etAct3.text.toString())
+        val a = getString(R.string.key3)
+        intent.putExtra("$a", viewBinding.etAct3.text.toString())
         setResult(RESULT_OK, intent)
         finish()
     }
 
     fun onClickGet(view: View) {
-        viewBinding.tvMain3.text = intent.getStringExtra("Key2")
-        Log.d("MyLog", "Znachenie peremennoj " + intent.getStringExtra("Key2"))
+        val a = getString(R.string.key2)
+        viewBinding.tvMain3.text = intent.getStringExtra("$a")
+
     }
 }

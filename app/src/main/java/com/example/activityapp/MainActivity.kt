@@ -3,7 +3,6 @@ package com.example.activityapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.example.activityapp.databinding.ActivityMainBinding
 
@@ -17,32 +16,38 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickGoMain2(view: View) {
-
-        val int = Intent(this, MainActivity2::class.java) //sozdali soobwenije
-        int.putExtra("Key1", "Message to Main2 from Main")
-        startActivityForResult(int, 100)
+        val requestCode = getString(R.string.startActivity2FromMainActivity).toInt()
+        val key = getString(R.string.key1)
+        val mm2 = getString(R.string.MTOM2)
+        val int = Intent(this, MainActivity2::class.java)
+        int.putExtra("$key", "$mm2")
+        startActivityForResult(int, requestCode)
     }
 
 
     fun onClickGoMain3(view: View) {
-        val a = R.string.key2.toString()
+        val requestCode = getString(R.string.startActivity3FromMainActivity).toInt()
+        val key = getString(R.string.key2)
+        val mm3 = getString(R.string.MTOM3)
         val int = Intent(this, MainActivity3::class.java)
-        int.putExtra("Key2", "Message to Main3 from Main")
-        startActivityForResult(int, 101)
-        Log.d("My", "Value a = " + a)
+        int.putExtra("$key", "$mm3")
+        startActivityForResult(int, requestCode)
+
     }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
+        val error = getString(R.string.error)
+        val key = getString(R.string.key3)
+        val key2 = getString(R.string.key4)
         super.onActivityResult(100, RESULT_OK, intent)
         if (requestCode == 100 && resultCode == RESULT_OK && intent != null) {
 
-            Log.d("Mylog", "intent=" + intent.getStringExtra("Back"))
-            viewBinding.tvMain.text = intent.getStringExtra("Back").toString()
+            viewBinding.tvMain.text = intent.getStringExtra("$key2").toString()
         } else if (requestCode == 101 && resultCode == RESULT_OK && intent != null) {
-            viewBinding.tvMain.text = intent.getStringExtra("Key3")
+            viewBinding.tvMain.text = intent.getStringExtra("$key")
         } else {
-            viewBinding.tvMain.text = "Wrong request code"
+            viewBinding.tvMain.text = error
         }
     }
 

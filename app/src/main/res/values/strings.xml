@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">Communication between activities</string>
+    <string name="error">Wrong request code</string>
 //Intent key`s
     <string name="key1">Key1</string>
     <string name="key2">Key2</string>
-    <string name="key3">Back</string>
+    <string name="key3">Key3</string>
+    <string name="key4">Back</string>
+//Messages
+    <string name="MTOM2">Message to Main2 from Main</string>
+    <string name="MTOM3">Message to Main3 from Main</string>
+    <string name="M2TOM3">Message to Main3 from Main2 </string>
+//RequestCode`s
+    <string name="startActivity2FromMainActivity">100</string>
+    <string name="startActivity3FromMainActivity">101</string>
+    <string name="startActivity3FromActivity2">102</string>
 </resources>
